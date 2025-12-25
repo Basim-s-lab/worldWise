@@ -14,7 +14,6 @@ function City({ cities, isLoading }) {
   const selectedCityId = useParams();
   const id = Number(selectedCityId.id);
   const currentCity = cities.filter((city) => city.id === id);
-  console.log(currentCity);
   if (isLoading) return <Spinner />;
   const { cityName, emoji, date, notes } = currentCity[0];
   return (
