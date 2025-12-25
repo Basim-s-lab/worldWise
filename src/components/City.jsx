@@ -1,4 +1,6 @@
+import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
+import Spinner from "./Spinner";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -8,17 +10,13 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function City() {
-  // TEMP DATA
-  const currentCity = {
-    cityName: "Lisbon",
-    emoji: "🇵🇹",
-    date: "2027-10-31T15:59:59.138Z",
-    notes: "My favorite city so far!",
-  };
-
-  const { cityName, emoji, date, notes } = currentCity;
-
+function City({ cities, isLoading }) {
+  const selectedCityId = useParams();
+  const id = Number(selectedCityId.id);
+  const currentCity = cities.filter((city) => city.id === id);
+  console.log(currentCity);
+  if (isLoading) return <Spinner />;
+  const { cityName, emoji, date, notes } = currentCity[0];
   return (
     <div className={styles.city}>
       <div className={styles.row}>
@@ -51,9 +49,9 @@ function City() {
         </a>
       </div>
 
-      <div>
+      {/* <div>
         <ButtonBack />
-      </div>
+      </div> */}
     </div>
   );
 }

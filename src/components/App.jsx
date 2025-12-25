@@ -8,6 +8,7 @@ import AppLayoute from "../pages/AppLayout";
 import PageNotFound from "../pages/PageNotFound";
 import CityList from "./CityList";
 import CountryList from "./CountryList";
+import City from "./City";
 
 const BASE_URL = "https://backend-server-ruddy-nine.vercel.app";
 export default function App() {
@@ -45,6 +46,10 @@ export default function App() {
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
+          />
+          <Route
+            path="cities/:id"
+            element={<City cities={cities} isLoading={isLoading} />}
           />
           <Route
             path="countries"
