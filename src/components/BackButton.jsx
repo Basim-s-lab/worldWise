@@ -9,7 +9,6 @@ export default function BackButton() {
       type="back"
       onClick={(e) => {
         e.preventDefault();
-        console.log(e);
         navigate(-1);
       }}
     >
