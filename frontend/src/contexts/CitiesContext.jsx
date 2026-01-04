@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import { useState, useEffect } from "react";
-import { createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 const CitiesContext = createContext();
 const BASE_URL = "https://backend-server-ruddy-nine.vercel.app";
@@ -14,7 +12,7 @@ function CitiesProvider({ children }) {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
+        const res = await fetch(`${BASE_URL}/app/cities`);
         const data = await res.json();
         setCities(data.cities);
       } catch {
@@ -29,7 +27,7 @@ function CitiesProvider({ children }) {
   async function getCity(id) {
     try {
       setIsLoading(true);
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const res = await fetch(`${BASE_URL}/app/cities/${id}`);
       const data = await res.json();
       SetCurrentCity(data[0]);
     } catch {
