@@ -1,9 +1,11 @@
 import express from 'express'
+import dotenv from "dotenv"
 import cities from "./data/cities.json" with { type: 'json'}
 
+dotenv.config();
 const app = express();
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.get("/api/cities", (req, res) => {
     console.log(cities.cities)
@@ -17,5 +19,5 @@ app.get("/api/cities/:id", (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Server is runing on port: ${port}`)
+    console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`)
 })
