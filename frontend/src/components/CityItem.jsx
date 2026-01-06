@@ -12,14 +12,13 @@ const formatDate = (date) => {
 
 export default function CityItem({ city }) {
   const { currentCity } = useCities();
-
-  const { cityName, date, emoji, id, position } = city;
+  const { cityName, date, emoji, _id, position } = city;
   return (
     <li>
       <Link
-        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+        to={`${_id}?lat=${position.lat}&lng=${position.lng}`}
         className={`${styles.cityItem} ${
-          id === currentCity.id ? styles["cityItem--active"] : ""
+          _id === currentCity._id ? styles["cityItem--active"] : ""
         }`}
       >
         <span className={styles.emoji}>{emoji}</span>

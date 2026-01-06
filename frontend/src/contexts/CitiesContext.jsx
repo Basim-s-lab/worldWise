@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 
 const CitiesContext = createContext();
-const BASE_URL = "https://backend-server-ruddy-nine.vercel.app";
+const BASE_URL = "http://localhost:5000";
 
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
@@ -12,9 +12,9 @@ function CitiesProvider({ children }) {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/app/cities`);
+        const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        setCities(data.cities);
+        setCities(data);
       } catch {
         alert("There was an error fetching data");
       } finally {
@@ -27,9 +27,9 @@ function CitiesProvider({ children }) {
   async function getCity(id) {
     try {
       setIsLoading(true);
-      const res = await fetch(`${BASE_URL}/app/cities/${id}`);
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      SetCurrentCity(data[0]);
+      SetCurrentCity(data);
     } catch {
       alert("There was an error fetching data");
     } finally {

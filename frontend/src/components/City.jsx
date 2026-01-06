@@ -17,7 +17,7 @@ function City() {
   const { currentCity, isLoading, getCity } = useCities();
 
   const selectedCityId = useParams();
-  const id = Number(selectedCityId.id);
+  const id = selectedCityId.id;
   useEffect(
     function () {
       getCity(id);
