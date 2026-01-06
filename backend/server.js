@@ -1,8 +1,9 @@
 import express from 'express'
 import dotenv from "dotenv"
-import cities from "./data/cities.js"
 import connectionDb from './config/db.js';
 import colors from 'colors'
+import cors from "cors"
+import citiesRoutes from './routes/citiesRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -10,16 +11,9 @@ connectionDb();
 
 const port = process.env.PORT || 5000;
 
-app.get("/api/cities", (req, res) => {
-    console.log(cities.cities)
-    res.json(cities)
-})
+app.use(cors());
 
-app.get("/api/cities/:id", (req, res) => {
-    let id = Number(req.params.id)
-    const city = cities.cities.find((c) => c.id === id)
-    res.json(city)
-})
+app.use("/cities", citiesRoutes)
 
 app.listen(port, () => {
     console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`.yellow.bold)
