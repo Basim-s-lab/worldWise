@@ -1,9 +1,11 @@
 import express from 'express'
 import dotenv from "dotenv"
 import cities from "./data/cities.json" with { type: 'json'}
+import connectionDb from './config/db.js';
 
 dotenv.config();
 const app = express();
+connectionDb();
 
 const port = process.env.PORT || 5000;
 
