@@ -10,8 +10,12 @@ const router = express.Router();
 router.get(
     "/",
     asyncHandler(async (req, res) => {
-        const cities = await City.find({});
-        res.status(200).json(cities);
+        try {
+            const cities = await City.find({});
+            res.status(200).json(cities);
+        } catch (err) {
+            res.status(500).json({ message: "DB error", error: err.message })
+        }
     })
 );
 
