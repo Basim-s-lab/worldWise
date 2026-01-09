@@ -22,7 +22,6 @@
   "homepage": "https://worldwise-90.netlify.app/",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "colors": "^1.4.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "express-async-handler": "^1.2.0",

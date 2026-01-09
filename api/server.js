@@ -21,16 +21,10 @@ app.get("/api/test", (req, res) => {
 });
 connectionDb();
 
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "https://world-wise-4jrx.vercel.app", "https://worldwise-90.netlify.app");
-
-//     next();
-// })
-
 app.use("/api/cities", citiesRoutes)
 
 // app.listen(port, () => {
-//     console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`.yellow.bold)
+//     console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`)
 // })
 
 export default app;
