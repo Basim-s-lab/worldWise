@@ -11,7 +11,10 @@ connectionDb();
 
 const port = process.env.PORT || 5000;
 
-app.use(cors({ origin: "https://world-wise-4jrx.vercel.app/" }));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://world-wise-4jrx.vercel.app", "https://worldwise-90.netlify.app");
+    next();
+})
 
 app.use("/api/cities", citiesRoutes)
 
