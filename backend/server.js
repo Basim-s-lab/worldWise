@@ -11,7 +11,7 @@ connectionDb();
 
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({ origin: "https://world-wise-4jrx.vercel.app/" }));
 
 app.use("/api/cities", citiesRoutes)
 
