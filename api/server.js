@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from "dotenv"
 import connectionDb from './config/db.js';
-import colors from 'colors'
+import colors from 'colors/index.js'
 import cors from "cors"
 import citiesRoutes from './routes/citiesRoutes.js';
 
