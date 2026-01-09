@@ -7,6 +7,7 @@ import citiesRoutes from './routes/citiesRoutes.js';
 
 dotenv.config();
 const app = express();
+app.use(cors());
 connectionDb();
 app.options('*', cors())
 const port = process.env.PORT || 5000;
@@ -17,7 +18,7 @@ const port = process.env.PORT || 5000;
 //     next();
 // })
 
-app.use("/api/cities", cors({ origin: "https://world-wise-4jrx.vercel.app" }), citiesRoutes)
+app.use("/api/cities", citiesRoutes)
 
 app.listen(port, () => {
     console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`.yellow.bold)
