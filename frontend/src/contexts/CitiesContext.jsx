@@ -13,10 +13,7 @@ function CitiesProvider({ children }) {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`, {
-          mode: "cors",
-          credentials: "include",
-        });
+        const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         setCities(data);
       } catch {
@@ -31,10 +28,7 @@ function CitiesProvider({ children }) {
   async function getCity(id) {
     try {
       setIsLoading(true);
-      const res = await fetch(`${BASE_URL}/cities/${id}`, {
-        mode: "cors",
-        credentials: "include",
-      });
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
       SetCurrentCity(data);
     } catch {
