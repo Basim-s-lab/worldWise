@@ -15,6 +15,10 @@ app.use(
 );
 app.use(express.json());
 const port = process.env.PORT || 5000;
+// Temp route to test cors
+app.get("/api/test", (req, res) => {
+    res.status(200).json({ message: "CORS & server working" });
+});
 connectionDb();
 
 // app.use((req, res, next) => {
