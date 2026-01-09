@@ -8,17 +8,16 @@ import citiesRoutes from './routes/citiesRoutes.js';
 dotenv.config();
 const app = express();
 connectionDb();
-
+app.options('*', cors())
 const port = process.env.PORT || 5000;
 
-app.use((req, res, next) => {
-    // Insecure method to solve cors policy Access-Control-Allow-Origin
-    res.setHeader("Access-Control-Allow-Origin", "*");
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "https://world-wise-4jrx.vercel.app", "https://worldwise-90.netlify.app");
 
-    next();
-})
+//     next();
+// })
 
-app.use("/api/cities", citiesRoutes)
+app.use("/api/cities", cors({ origin: "https://world-wise-4jrx.vercel.app" }), citiesRoutes)
 
 app.listen(port, () => {
     console.log(`Server is runing in ${process.env.NODE_ENV} mode on port: ${port}`.yellow.bold)
