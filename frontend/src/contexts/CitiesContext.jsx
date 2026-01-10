@@ -2,7 +2,7 @@ import { useState, useEffect, createContext, useContext } from "react";
 
 const CitiesContext = createContext();
 const BASE_URL =
-  "https://world-wise-f59apdsxt-shiroyaksha90s-projects.vercel.app/api";
+  "https://ruling-atlante-basim-development-27849ae3.koyeb.app/api";
 
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
