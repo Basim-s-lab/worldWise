@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 app.use(
     cors({
-        origin: "https://world-wise-4jrx.vercel.app",
+        origin: ["https://world-wise-4jrx.vercel.app", "https://worldwise-90.netlify.app", "http://localhost:5173", "http://localhost:3000"],
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })
